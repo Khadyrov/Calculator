@@ -31,6 +31,10 @@ const btns = document.querySelector('.calc-buttons')
 const handleBtn = (e) => {
   if(e.length > 1) {return}
 
+  if(!isNaN(e)) {
+    e = `${e}`
+  }
+
   if(!isNaN(e) || e === '.') {
     handleNumber(e)
   } else{
