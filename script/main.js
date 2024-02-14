@@ -171,17 +171,19 @@ const list = document.querySelector('.list__content')
 const addHtmlElement = () => {
 
   let allListItems = ``
-  data.map(e => {
+  data.forEach( item => {
+
+    const {firstNum, lastNum, previousOperator, id, result} = item
     allListItems += `
       <li class="list__item item"">
         <div class="item__text">
-          ${e.firstNum} ${e.previousOperator} ${e.lastNum} = 
-          <strong>${e.result}</strong>
+          ${firstNum} ${previousOperator} ${lastNum} = 
+          <strong>${result}</strong>
         </div>
         <div class="Icons-row">
 
-          <div class="icons addIcon" onclick="addItem(${e.result})"></div>
-          <div class="icons deleteIcon" onclick="deleteItem(${e.id})"></div>
+          <div class="icons addIcon" onclick="addItem(${result})"></div>
+          <div class="icons deleteIcon" onclick="deleteItem(${id})"></div>
           
 
         </div>
@@ -226,148 +228,12 @@ const calculator = document.querySelector('.calculator')
 
 
 navBarCalculator.addEventListener('click', () => {
-  list.classList.add('hiddenList')
+  list.classList.add('hidden-list')
   calculator.classList.remove('hidden')
 })
 
 
 navBarlist.addEventListener('click', () => {
-  list.classList.remove('hiddenList')
+  list.classList.remove('hidden-list')
   calculator.classList.add('hidden')
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const arr = [[1,2], 3,4, [[5,6]], 22];
-
-
-// function counter(data) {
-
-//   let result = 0
-
-//   const handleAdd = (e) => {
-//      e.forEach(element => {
-//       if(Array.isArray(element)) {
-//         handleAdd(element);
-//       }
-  
-//       else if(!isNaN(element)) {
-//         result += element
-//       }
-  
-//       else {
-//         return
-//       }
-//     });
-//   }
-
-//   handleAdd(data)
-
-//   return result
-
-// }
-
-// console.log(counter(arr));
-
-
-// function twoSum(nums, target) {
-
-//   let result = []
-//   for(let i = 0; i < nums.length; i++) {
-//       if(result.length > 0) {
-//         return result
-//       }
-
-//       nums.forEach((e, index) => {
-//           const plusE = e + nums[i]
-//           if(index !== i) {
-//             console.log(plusE);
-//               if(plusE == target ) {
-              
-//               result = [i, index]
-
-//               return false
-//           }
-//           }
-//       })
-//   }
-
-//   return  result
-// };
-
-// console.log(twoSum( nums = [2,7,11,15], target = 9));// must be  [0,1]
-
-// function twoSum(nums, target) {
-
-//   const numMap = {}
-
-//   for(let i = 0; i < nums.length; i++) {
-//       const complement = target - nums[i]
-//       console.log(numMap);
-//       console.log(complement);
-
-//       if(numMap.hasOwnProperty(nums[i])) {
-//           return [numMap[nums[i]], i]
-//       }
-
-//       numMap[complement] = i
-//   }
-
-//   return []
-// }
-
-// console.log(twoSum( nums = [2,7,11,15], target = 9));// must be  [0,1]
-
-
-
-// function addTwoNumbers(l1,l2) {
-
-//     const num1 = l1.join('')
-//     const num2 = l2.join('')
-
-//     const sum = BigInt(num1) + BigInt(num2)
-
-//     const plus = Array.from(String(sum), Number)
-
-//     return plus.reverse()
-// }
-
-// console.log(addTwoNumbers(
-//   l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
-// ))

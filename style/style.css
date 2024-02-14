@@ -53,7 +53,7 @@ body {
   opacity: 0;
 }
 
-.hiddenlist {
+.hidden-list {
   opacity: 0;
   margin-right: -100%;
 }
@@ -136,7 +136,7 @@ body {
   max-height: 500px;
   overflow-y: auto;
   overflow-x: hidden;
-
+  transition: 0.5s;
 }
 
 .list__content::-webkit-scrollbar {
